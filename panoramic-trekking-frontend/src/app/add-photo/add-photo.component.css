@@ -1,0 +1,32 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#file-label {
+  display: inline-flex;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+#file-label mat-icon {
+  font-size: 18px;
+  text-align: center;
+}
+
+#file-label a {
+  cursor: pointer;
+}
+
+.full-width-with-indent {
+  width: 100%;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.upload-photo-button, .photo-metadata-form {
+  padding-top: 15px;
+}
