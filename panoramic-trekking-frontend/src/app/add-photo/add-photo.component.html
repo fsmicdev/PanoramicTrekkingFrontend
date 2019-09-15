@@ -1,8 +1,21 @@
 
+<mat-card class="pt-photo-upload">
+  <mat-card-header>
+    <div mat-card-avatar
+         class="header-user-avatar-image">
+      <br/>
+      <div class="username-near-avatar">
+        MicG
+      </div>
+    </div>
+  </mat-card-header>
+</mat-card>
+
 <form class="photo-metadata-form">
   <!-- <mat-form-field class="full-width-with-indent"> -->
   <div class="full-width-with-indent">
-    <input matInput
+    <input type="text"
+           matInput
            placeholder="Photo Title"
            size="80"
            maxlength="80">
@@ -15,12 +28,17 @@
   </div>
   <!-- <mat-form-field class="full-width-with-indent"> -->
   <div class="full-width-with-indent">
-    <input matInput
+    <input type="text"
+           matInput
+           readonly="readonly"
            [min]="minDatePhotoWasTaken"
            [max]="maxDatePhotoWasTaken"
            [matDatepicker]="picker"
-           placeholder="Choose a date photo was taken">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           placeholder="Date photo was taken">
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="picker">
+    </mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </div>
   <!-- </mat-form-field> -->
