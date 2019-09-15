@@ -21,8 +21,11 @@
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
+    "angular-material-fileupload": "^2.0.0",
     "hammerjs": "^2.0.8",
-    "rxjs": "~6.4.0",
+    "rxjs": "6.5.2",
+    "rxjs-compat": "^6.5.2",
+    "core-js": "2.6.9",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
