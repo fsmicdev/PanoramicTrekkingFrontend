@@ -37,8 +37,7 @@
 <br/>
 
 <ul>
-  <li *ngFor="let file of files"
-      [@fadeInOut]="file.state">
+  <li *ngFor="let file of files">
     <mat-progress-bar
       class="full-width-with-indent"
       [value]="file.progress">
