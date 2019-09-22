@@ -1,0 +1,13 @@
+<div class="full-width-with-indent">
+  <h3><i>Associate/De-Associate Tags - via drag-n-drop</i></h3>
+
+  <div class="tag-button-row">
+    <span *ngFor="let tag of usersTags; let i = index">
+      <button mat-stroked-button
+              class="tag-material-buttons"
+              color="{{i % 2 == 0 ? 'primary' : 'accent'}}">
+        {{tag.tagWord}}
+      </button>
+    </span>
+  </div>
+</div>
