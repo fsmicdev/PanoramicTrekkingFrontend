@@ -22,12 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ManageTagsComponent } from './manage-tags/manage-tags.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddPhotoComponent,
-    ViewPhotoDetailsComponent
+    ViewPhotoDetailsComponent,
+    ManageTagsComponent
   ],
   imports: [
     BrowserModule,

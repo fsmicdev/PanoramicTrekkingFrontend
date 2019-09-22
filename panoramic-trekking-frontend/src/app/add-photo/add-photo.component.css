@@ -21,12 +21,6 @@ li {
   cursor: pointer;
 }
 
-.full-width-with-indent {
-  width: 100%;
-  padding-left: 15px;
-  padding-bottom: 15px;
-}
-
 .upload-photo-button, .photo-metadata-form {
   padding-top: 15px;
 }

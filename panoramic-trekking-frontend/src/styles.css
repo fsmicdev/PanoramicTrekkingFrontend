@@ -287,9 +287,10 @@ svg#clouds {
 }
 
 .mat-stroked-button {
-  border: 1px solid currentColor;
-  padding: 0 15px;
-  line-height: 28px;
+  border: 1px solid currentColor !important;
+  line-height: 18px !important;
+  padding-bottom: 25px !important;
+  padding-top: 10px !important;
 }
 
 .pt-header {
@@ -344,4 +345,21 @@ svg#clouds {
 
 input[type=text], input[type=password], input[type=number], textarea {
   padding: 10px;
+}
+
+.full-width-with-indent {
+  width: 100%;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.tag-button-row,
+.tag-button-row button {
+  margin-right: 8px;
+  margin-top: 5px;
+}
+
+.tag-material-buttons {
+  height: 28px!important;
+  min-height: unset!important;
 }
