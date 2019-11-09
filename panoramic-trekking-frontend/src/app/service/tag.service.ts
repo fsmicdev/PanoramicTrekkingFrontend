@@ -11,7 +11,9 @@ export class TagService {
   }
 
   grabUsersTags(userId: number): Tag[] { // Observable<Tag[]> {
-    // Mocked data only initially
+    // ###########################################
+    // ##### N.B. Mocked data only initially #####
+    // ###########################################
     const tags = [] as Tag[];
 
     const tag1 = new Tag();
