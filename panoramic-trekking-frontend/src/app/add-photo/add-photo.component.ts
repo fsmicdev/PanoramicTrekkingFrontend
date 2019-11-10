@@ -9,7 +9,6 @@ import { of } from 'rxjs/observable/of';
   styleUrls: ['./add-photo.component.css']
 })
 export class AddPhotoComponent implements OnInit {
-  /** Link text */
 
   minDatePhotoWasTaken = new Date(2000, 0, 1);
   maxDatePhotoWasTaken = new Date();

@@ -1,3 +1,10 @@
+###################################
+##### Current prototype pages #####
+###################################
+http://localhost:4200/view-photo-details
+http://localhost:4200/add-photo
+
+  
 # PanoramicTrekkingFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.

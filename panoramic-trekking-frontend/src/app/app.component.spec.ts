@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'panoramic-trekking-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('panoramic-trekking-frontend');
+    expect(app.title).toEqual('Panoramic Trekking');
   });
 
   it('should render title', () => {

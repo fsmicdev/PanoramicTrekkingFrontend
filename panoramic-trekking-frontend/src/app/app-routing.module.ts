@@ -8,13 +8,13 @@ export const routes: Routes = [
   /* { path: 'loginuser', component: LoginComponent }, */
 
   /* authenticated routes */
-  { path: 'add-photo', component: AddPhotoComponent },
-  { path: 'view-photo-details', component: ViewPhotoDetailsComponent },
+  { path: 'add-photo', component: AddPhotoComponent, data: {title: 'Add Photo'} },
+  { path: 'view-photo-details', component: ViewPhotoDetailsComponent, data: {title: 'View Photo Details'} },
   { path: '**', redirectTo: '/' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot( routes, { enableTracing: true } )],
+  imports: [RouterModule.forRoot( routes, { enableTracing: false } )], // { enableTracing: true } )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
