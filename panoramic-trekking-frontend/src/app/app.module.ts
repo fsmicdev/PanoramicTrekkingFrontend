@@ -18,19 +18,19 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
 import { ViewPhotoDetailsComponent } from './view-photo-details/view-photo-details.component';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ManageTagsComponent } from './manage-tags/manage-tags.component';
+import { LoginComponent } from './login/login.component';
+
+import { AlertComponent } from './_components';
+import { HomeComponent } from './home';
+import { RegisterComponent } from './register';
+import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddPhotoComponent,
-    ViewPhotoDetailsComponent,
-    ManageTagsComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -59,11 +59,24 @@ import { ManageTagsComponent } from './manage-tags/manage-tags.component';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  providers: [
-    Title
+  declarations: [
+    LoginComponent,
+    AlertComponent,
+    RegisterComponent,
+    HomeComponent,
+    AppComponent,
+    AddPhotoComponent,
+    ViewPhotoDetailsComponent,
+    ManageTagsComponent
   ],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [
+    Title,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

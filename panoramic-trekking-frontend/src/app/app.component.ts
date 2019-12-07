@@ -4,6 +4,9 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
+import { AuthenticationService } from './_services';
+import { User } from './_models';
+
 const suffixTitle = ' : Panoramic Trekking';
 
 @Component({
@@ -12,9 +15,14 @@ const suffixTitle = ' : Panoramic Trekking';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  currentUser: User;
+
   constructor(private titleService: Title,
               private router: Router,
-              private activatedRoute: ActivatedRoute) {
+              private activatedRoute: ActivatedRoute,
+              private authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit() {
@@ -39,5 +47,10 @@ export class AppComponent implements OnInit {
 
       this.titleService.setTitle(docTitleForPage);
     });
+  }
+
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
