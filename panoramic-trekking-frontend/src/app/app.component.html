@@ -8,16 +8,21 @@
 
 <!-- main app container -->
 <div class="jumbotron">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 offset-sm-3">
-        <alert></alert>
-        <!-- Highlight Card -->
-        <div class="card highlight-card card-small" style="text-align: center;">
-          <span class="pt-header">Panoramic Trekking</span>
-        </div>
+  <div class="container" [ngSwitch]="isLoginPage">
+    <div *ngSwitchCase="true">
+      <router-outlet></router-outlet>
+    </div>
+    <div *ngSwitchCase="false">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <alert></alert>
+          <!-- Highlight Card -->
+          <div class="card highlight-card card-small" style="text-align: center;">
+            <span class="pt-header">Panoramic Trekking</span>
+          </div>
 
-        <router-outlet></router-outlet>
+          <router-outlet></router-outlet>
+        </div>
       </div>
     </div>
   </div>

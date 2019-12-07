@@ -17,6 +17,7 @@ const suffixTitle = ' : Panoramic Trekking';
 export class AppComponent implements OnInit {
 
   currentUser: User;
+  isLoginPage = true;
 
   constructor(private titleService: Title,
               private router: Router,
