@@ -1,13 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpEventType, HttpRequest} from '@angular/common/http';
-import {Subscription} from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
-
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import {AlertService, AuthenticationService} from '../_services';
+
+import { AlertService, AuthenticationService } from '../_services';
 
 @Component({
   templateUrl: './login.component.html',

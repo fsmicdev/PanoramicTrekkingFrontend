@@ -29,10 +29,12 @@ import { AlertComponent } from './_components';
 import { HomeComponent } from './home';
 import { RegisterComponent } from './register';
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -45,7 +47,8 @@ import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helper
     MatProgressBarModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   exports: [
     MatToolbarModule,
