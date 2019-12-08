@@ -30,6 +30,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
@@ -39,7 +40,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatFileUploadModule,
     MatProgressBarModule,
-    HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule
@@ -57,11 +57,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatNativeDateModule
   ],
   declarations: [
+    AppComponent,
     LoginComponent,
     AlertComponent,
     RegisterComponent,
     HomeComponent,
-    AppComponent,
     AddPhotoComponent,
     ViewPhotoDetailsComponent,
     ManageTagsComponent

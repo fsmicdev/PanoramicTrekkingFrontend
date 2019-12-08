@@ -1,6 +1,12 @@
+##############################
+##### BUILD with webpack #####
+npm run-script build
+##############################
+
 ###################################
 ##### Current prototype pages #####
 ###################################
+http://localhost:4200/login
 http://localhost:4200/view-photo-details
 http://localhost:4200/add-photo
 

@@ -1,5 +1,6 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+<nav class="navbar navbar-expand navbar-dark bg-dark" 4
+     *ngIf="currentUser">
   <div class="navbar-nav">
     <a class="nav-item nav-link" routerLink="/">Home</a>
     <a class="nav-item nav-link" (click)="logout()">Logout</a>
@@ -15,12 +16,12 @@
     <div *ngSwitchCase="false">
       <div class="row">
         <div class="col-sm-6 offset-sm-3">
-          <alert></alert>
           <!-- Highlight Card -->
           <div class="card highlight-card card-small" style="text-align: center;">
             <span class="pt-header">Panoramic Trekking</span>
           </div>
 
+          <alert></alert>
           <router-outlet></router-outlet>
         </div>
       </div>
