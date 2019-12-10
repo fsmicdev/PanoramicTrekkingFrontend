@@ -30,12 +30,13 @@ export class AuthenticationService {
       userLoginRequest.username = usernameVal;
       userLoginRequest.password = passwordVal;
 
-      return this.http.post<User>(userLoginApiUrl, userLoginRequest,
-        {
-          headers: new HttpHeaders({
-            'Content-Type': 'application/json',
-          })
-        }).toPromise().then(data => {
+      try {
+        return this.http.post<User>(userLoginApiUrl, userLoginRequest,
+          {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+            })
+          }).toPromise().then(data => {
           localStorage.setItem('currentUser', JSON.stringify(data));
           const observableUser = of(data);
           this.currentUser = observableUser;
@@ -47,8 +48,12 @@ export class AuthenticationService {
             console.log('##### loggedInUser as User object: ', loggedInUser);
             this.currentUserSubject.next(loggedInUser);
           }
+          console.log('<<<<< RETURNING observableUser: ', observableUser);
           return observableUser;
         }); // @TODO: Handle Error/Exception case
+      } catch {
+        console.log('EXCEPTION');
+      }
     }
 
     logout() {

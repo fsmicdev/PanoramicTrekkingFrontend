@@ -1,8 +1,11 @@
-﻿<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
+﻿<!--
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
 
 
 <br/>
+-->
 
+<!--
 <button mat-icon-button
         [matMenuTriggerFor]="menu"
         aria-label="Example icon-button with a menu">
@@ -22,14 +25,24 @@
     <span>Disable alerts</span>
   </button>
 </mat-menu>
+-->
 
+<span *ngIf="currentUser">
+  <h1>Hi {{currentUser.firstName}}!</h1>
 
-<h1>Hi {{currentUser.firstName}}!</h1>
-<p>You're logged in with Angular 8!!</p>
+  <p>You're logged in with Angular 8!!</p>
+</span>
+
+<span *ngIf="! currentUser">
+  <h1>Hi ANONYMOUS!</h1>
+</span>
+
 <h3>All registered users:</h3>
 <ul>
     <li *ngFor="let user of users">
+       <span *ngIf="user && user.firstName && user.lastName">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
         - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+       </span>
     </li>
 </ul>

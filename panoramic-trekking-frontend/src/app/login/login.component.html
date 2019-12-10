@@ -21,7 +21,6 @@
       <div class="container-login100">
         <div class="wrap-login100">
           <form [formGroup]="loginForm"
-                (ngSubmit)="onSubmit()"
                 class="login100-form validate-form">
                       <span class="login100-form-title p-b-34">
                       Account Login
@@ -53,7 +52,8 @@
             </div>
             <div class="form-group container-login100-form-btn">
               <button [disabled]="loading"
-                      class="login100-form-btn">
+                      class="login100-form-btn"
+                      (click)="onSubmit()">
                 Sign in
               </button>
             </div>
@@ -71,7 +71,8 @@
               </a>
             </div>
           </form>
-          <div class="login100-more" style="background-image: url('/assets/images/bg-01.jpg');"></div>
+          <div class="login100-more"
+               style="background-image: url('/assets/images/bg-01.jpg');"></div>
         </div>
       </div>
     </div>
