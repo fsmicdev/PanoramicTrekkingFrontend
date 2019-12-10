@@ -10,3 +10,8 @@
     token: string;
     roles: any[];
 }
+
+export class UserLoginRequest {
+  username: string;
+  password: string;
+}

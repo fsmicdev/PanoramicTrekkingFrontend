@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
 
   /* ----- authenticated routes ----- */
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent }, // , canActivate: [AuthGuard] },
   { path: 'add-photo', component: AddPhotoComponent, data: {title: 'Add Photo'} },
   { path: 'view-photo-details', component: ViewPhotoDetailsComponent, data: {title: 'View Photo Details'} },
   { path: '**', redirectTo: '/' }

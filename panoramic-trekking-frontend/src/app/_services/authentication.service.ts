@@ -1,9 +1,10 @@
 ﻿import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable, throwError} from 'rxjs';
+import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
 import { User } from '../_models';
+import { UserLoginRequest } from '../_models';
 
 import { environment } from '../../environments/environment';
 
@@ -21,41 +22,33 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(usernameVal, passwordVal): any {
-        const userLoginApiUrl = `${environment.usersApiUrl}/users/loginUser`;
-        console.log('>>> userLoginApiUrl: ', userLoginApiUrl);
+    public async loginUser(usernameVal, passwordVal): Promise<Observable<User>> {
+      const userLoginApiUrl = `${environment.usersApiUrl}/users/loginUser`;
+      console.log('>>> userLoginApiUrl: ', userLoginApiUrl);
 
-        this.http.post<any>(userLoginApiUrl, {
-          username : usernameVal,
-          password : passwordVal },
-          {
-            headers: new HttpHeaders({
-              'Content-Type': 'application/json',
-            })
-          }).subscribe(
-          res => {
-            console.log('>>>>> AUTHENTICATION SERVICE (Positive) RESULT: ', res);
-            if (res) {
-              // store user details and jwt token in local storage to keep user logged in between page refreshes
-              localStorage.setItem('currentUser', JSON.stringify(res));
-              // if (res instanceof User) {
-              this.currentUserSubject.next(res);
-              // }
-              return res;
-            }
-          },
-          err => {
-            console.log('>>> Error occured, ', err);
+      const userLoginRequest: UserLoginRequest = new UserLoginRequest();
+      userLoginRequest.username = usernameVal;
+      userLoginRequest.password = passwordVal;
+
+      return this.http.post<User>(userLoginApiUrl, userLoginRequest,
+        {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+          })
+        }).toPromise().then(data => {
+          localStorage.setItem('currentUser', JSON.stringify(data));
+          const observableUser = of(data);
+          this.currentUser = observableUser;
+          console.log('>>>>> >>>>> LOGGED-IN USER ', data);
+          if (data instanceof User) {
+            console.log('##### data is an instanceof User - good!');
+          } else {
+            const loggedInUser = Object.assign(new User(), data);
+            console.log('##### loggedInUser as User object: ', loggedInUser);
+            this.currentUserSubject.next(loggedInUser);
           }
-        );
-          /*
-          .pipe(map(user => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.currentUserSubject.next(user);
-          return user;
-        }));
-        */
+          return observableUser;
+        }); // @TODO: Handle Error/Exception case
     }
 
     logout() {
@@ -64,16 +57,16 @@ export class AuthenticationService {
         this.currentUserSubject.next(null);
     }
 
-    handleError(error) {
-      let errorMessage = '';
-      if (error.error instanceof ErrorEvent) {
-        // client-side error
-        errorMessage = `Error: ${error.error.message}`;
-      } else {
-        // server-side error
-        errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-      }
-      window.alert(errorMessage);
-      return throwError(errorMessage);
+    private handleError<T>(operation = 'operation', result?: T) {
+      return (error: any): Observable<T> => {
+        console.error(error);
+        this.log(`${operation} failed: ${error.message}`);
+
+        return of(result as T);
+      };
+    }
+
+    private log(message: string) {
+      console.log(message);
     }
 }
