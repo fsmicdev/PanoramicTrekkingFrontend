@@ -1,5 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {ClassProvider, NgModule} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +24,16 @@ import { HomeComponent } from './home';
 import { RegisterComponent } from './register';
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+import {HttpLoggingInterceptor} from '@/_helpers/http-logging.interceptor';
+
+
+const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
+  provide: HTTP_INTERCEPTORS ,
+  useClass: HttpLoggingInterceptor,
+  multi: true
+};
+
 
 @NgModule({
   imports: [
@@ -32,6 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatSliderModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
@@ -68,6 +79,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   ],
   providers: [
     Title,
+    HTTP_LOGGING_INTERCEPTOR_PROVIDER,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 

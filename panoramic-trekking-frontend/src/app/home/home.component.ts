@@ -1,4 +1,8 @@
 ﻿import { Component, OnInit } from '@angular/core';
+
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+
 import { first } from 'rxjs/operators';
 
 import { User } from '../_models';
@@ -9,10 +13,8 @@ export class HomeComponent implements OnInit {
     currentUser: User;
     users = [];
 
-    constructor(
-        private authenticationService: AuthenticationService,
-        private userService: UserService
-    ) {
+    constructor(private authenticationService: AuthenticationService,
+                private userService: UserService) {
         this.currentUser = this.authenticationService.currentUserValue;
     }
 
