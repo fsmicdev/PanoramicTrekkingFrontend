@@ -1,13 +1,13 @@
 <!-- nav -->
 <nav class="navbar navbar-expand"
      *ngIf="currentUser">
+  <a class="navbar-brand" href="#" style="cursor: auto;"><h4><b>Panoramic Trekking</b></h4></a>
   <div class="navbar-nav">
     <button mat-icon-button
             [matMenuTriggerFor]="menu"
             aria-label="Example icon-button with a menu">
       <mat-icon>menu</mat-icon>
       <br/>
-      <!-- <mat-icon>more_horiz</mat-icon> -->
     </button>
     <mat-menu #menu="matMenu">
       <button mat-menu-item>
@@ -33,9 +33,9 @@
 <div class="jumbotron">
   <div class="container" [ngSwitch]="isLoginPage">
     <div *ngSwitchCase="true">
-      <div style="text-align: center;"><h1>PANORAMIC TREKKING</h1></div>
+      <!-- <div style="text-align: center;"><h1>PANORAMIC TREKKING</h1></div>
       <br/>
-      <br/>
+      -->
       <router-outlet></router-outlet>
     </div>
     <div *ngSwitchCase="false">

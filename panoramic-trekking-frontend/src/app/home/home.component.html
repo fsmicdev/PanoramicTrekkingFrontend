@@ -1,24 +1,9 @@
-﻿<!--
-<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-<br/>
--->
-
-<br/>
-
-<!--
-<span *ngIf="currentUser">
-  <h1>Hi {{currentUser.firstName}}!</h1>
-
-  <p>You're logged into Panoramic Trekking!!</p>
-</span>
--->
-
-<span *ngIf="! currentUser">
-  <h1>Hi ANONYMOUS!</h1>
+﻿<span *ngIf="currentUser">
+  <h3>Hi {{currentUser.firstName}}!</h3>
 </span>
 
 <br/>
-<h3>[All your photos will be displayed here]</h3>
+<h5>[All your photos will be displayed here]</h5>
 <!--
 <ul>
     <li *ngFor="let user of users">
