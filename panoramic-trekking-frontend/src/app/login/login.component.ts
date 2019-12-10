@@ -61,20 +61,14 @@ export class LoginComponent implements OnInit {
         data => {
           console.log('>>> Authenticated user: ', data);
           console.log('>>> Navigating to: ' + this.returnUrl);
-          // this.router.navigate([this.returnUrl]); // ['/home']); // [this.returnUrl]);
           if (data) {
-            this.router.navigate([this.returnUrl]).
-            catch(err => {
-              console.log('##### ERROR in navigate!! #####');
-              this.loading = false;
-              return;
-            });
+            console.log('..... Intention to nav to: ' + this.returnUrl);
+            this.loading = false;
+            location.replace('/home');
           }
           this.loading = false;
         },
         error => {
-          this.loading = false;
-          return;
           this.alertService.error(error);
           this.loading = false;
         });

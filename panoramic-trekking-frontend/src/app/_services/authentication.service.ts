@@ -46,13 +46,13 @@ export class AuthenticationService {
           } else {
             const loggedInUser = Object.assign(new User(), data);
             console.log('##### loggedInUser as User object: ', loggedInUser);
-            this.currentUserSubject.next(loggedInUser);
+            // this.currentUserSubject.next(loggedInUser);
           }
           console.log('<<<<< RETURNING observableUser: ', observableUser);
           return observableUser;
         }); // @TODO: Handle Error/Exception case
       } catch {
-        console.log('EXCEPTION');
+        console.log('>>>>>--->>>>> EXCEPTION <<<<<---<<<<<');
       }
     }
 

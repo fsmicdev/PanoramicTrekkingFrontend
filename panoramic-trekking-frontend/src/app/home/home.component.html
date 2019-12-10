@@ -1,43 +1,25 @@
 ﻿<!--
 <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-
-
 <br/>
 -->
 
-<!--
-<button mat-icon-button
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu">
-  <mat-icon>more_vert</mat-icon>
-</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button>
-</mat-menu>
--->
+<br/>
 
+<!--
 <span *ngIf="currentUser">
   <h1>Hi {{currentUser.firstName}}!</h1>
 
-  <p>You're logged in with Angular 8!!</p>
+  <p>You're logged into Panoramic Trekking!!</p>
 </span>
+-->
 
 <span *ngIf="! currentUser">
   <h1>Hi ANONYMOUS!</h1>
 </span>
 
-<h3>All registered users:</h3>
+<br/>
+<h3>[All your photos will be displayed here]</h3>
+<!--
 <ul>
     <li *ngFor="let user of users">
        <span *ngIf="user && user.firstName && user.lastName">
@@ -46,3 +28,4 @@
        </span>
     </li>
 </ul>
+-->

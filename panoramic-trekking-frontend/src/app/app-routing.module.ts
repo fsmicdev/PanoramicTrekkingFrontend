@@ -9,11 +9,11 @@ import { AuthGuard } from './_helpers';
 
 export const routes: Routes = [
   /* ----- anonymous routes ----- */
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
+  // {
+  //  path: '',
+  //  redirectTo: '/home',
+  //  pathMatch: 'full'
+  // },
   { path: 'login', component: LoginComponent, data: {title: 'Login'} },
   { path: 'register', component: RegisterComponent, data: {title: 'Register Here'} },
 
@@ -21,7 +21,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent, data: {title: 'Home Landing Page'} }, // , canActivate: [AuthGuard] },
   { path: 'add-photo', component: AddPhotoComponent, data: {title: 'Add Photo'} },
   { path: 'view-photo-details', component: ViewPhotoDetailsComponent, data: {title: 'View Photo Details'} },
-  // { path: '**', component: HomeComponent }
+  { path: '**', component: LoginComponent }
 ];
 
 @NgModule({
