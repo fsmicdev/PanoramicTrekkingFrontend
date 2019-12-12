@@ -7,6 +7,24 @@ a {
   cursor: pointer;
 }
 
+.raised-block {
+  background-color: #fff;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: -0.625rem; /* for us 0.625rem == 10px */
+padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+@media (max-width: 33.9em){ /* this is for our mobile layout where columns stack */
+.raised-block {
+  margin-left: -0.625rem;
+}
+}
+.row [class^="col-"]:first-child>.raised-block {
+/* this is so the first column has no margin so it will not be "indented" */
+margin-left: -0.625rem;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;

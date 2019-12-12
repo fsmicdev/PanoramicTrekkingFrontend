@@ -13,6 +13,7 @@ import {PhotosService} from "@/_services/photos.service";
 export class HomeComponent implements OnInit {
     currentUser: User;
     users = [];
+    ptImgSrcs: string[] = new Array();
 
     constructor(private authenticationService: AuthenticationService,
                 private userService: UserService,
@@ -35,6 +36,7 @@ export class HomeComponent implements OnInit {
                   const aPhoto = Object.assign(new Photos(), dataRec);
                   console.log('>>>>> AS A PHOTO: ', aPhoto);
                   photosArray.push(aPhoto);
+                  this.ptImgSrcs.push(aPhoto.imageCroppedStandardBase64);
                 }
 
                 console.log('>>>>> >>>>> >>>>> photosArray: ', photosArray);
