@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  usersApiUrl: 'http://localhost:8084/useraaservice/apis'
+  usersApiUrl: 'http://localhost:8084/useraaservice/apis',
+  photosApiUrl: 'http://localhost:8080/photoprocessingservice/apis'
 };
 
 /*
