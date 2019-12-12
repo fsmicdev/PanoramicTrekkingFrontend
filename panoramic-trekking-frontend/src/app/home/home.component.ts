@@ -23,19 +23,21 @@ export class HomeComponent implements OnInit {
         if (this.currentUser && this.currentUser.id) {
           console.log('>>>>> All photos for current logged-in user...');
 
+          const photosArray: Photos[] = new Array()
+
           this.photosService.getAllPhotosForOwnerUser(this.currentUser.id).subscribe(
               resp => {
-                console.log('ALL PHOTOS RESPONSE: ', resp);
-                // const keys = resp.headers.keys();
-                // this.headers = keys.map(key =>
-                //   `${key}: ${resp.headers.get(key)}`);
+                console.log('>>>>> Photos RESPONSE data: ' + resp);
 
-                // for (const data of resp.body) {
-                //  this.smartphone.push(data);
-                // }
+                for (const dataRec of resp) {
+                  console.log('>>> Result record: ', dataRec);
 
-                console.log('>>>>> Photos data: ' + resp);
-                // const loggedInUser = Object.assign(new Photos(), data);
+                  const aPhoto = Object.assign(new Photos(), dataRec);
+                  console.log('>>>>> AS A PHOTO: ', aPhoto);
+                  photosArray.push(aPhoto);
+                }
+
+                console.log('>>>>> >>>>> >>>>> photosArray: ', photosArray);
               }
             );
         }
