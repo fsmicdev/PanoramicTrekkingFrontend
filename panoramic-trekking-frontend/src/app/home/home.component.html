@@ -1,9 +1,67 @@
 ﻿<span *ngIf="currentUser">
-  <h3>Hi {{currentUser.firstName}}!</h3>
+  <h3><b><i>Hi, {{currentUser.firstName}}!</i></b></h3>
 </span>
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[0]">
+        <img src="{{ptImgSrcs[0]}}" alt="Panoramic Trekking photo (1 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[1]">
+        <img src="{{ptImgSrcs[1]}}" alt="Panoramic Trekking photo (2 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[2]">
+        <img src="{{ptImgSrcs[2]}}" alt="Panoramic Trekking photo (3 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[3]">
+        <img src="{{ptImgSrcs[3]}}" alt="Panoramic Trekking photo (4 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[4]">
+        <img src="{{ptImgSrcs[4]}}" alt="Panoramic Trekking photo (5 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[5]">
+        <img src="{{ptImgSrcs[5]}}" alt="Panoramic Trekking photo (6 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[6]">
+        <img src="{{ptImgSrcs[6]}}" alt="Panoramic Trekking photo (7 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[7]">
+        <img src="{{ptImgSrcs[7]}}" alt="Panoramic Trekking photo (8 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="raised-block" *ngIf="ptImgSrcs[8]">
+        <img src="{{ptImgSrcs[8]}}" alt="Panoramic Trekking photo (9 of 9 shown)" width="340" height="300" class="img-responsive" />
+      </div>
+    </div>
+  </div>
+</div>
+
 <br/>
-<h5>[All your photos will be displayed here]</h5>
+<br/>
+<br/>
+<hr>
 
 <section class="section-preview">
   <div class="row">
@@ -116,70 +174,3 @@
     </div>
   </div>
 </section>
-
-<!--
-<span *ngFor="let photoSrc of ptImgSrcs; index as i;">
-  <img src="{{photoSrc}}" alt="Panoramic Trekking photo" width="400" height="400" />
-</span>
--->
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[0]}}" alt="Panoramic Trekking photo (1 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[1]}}" alt="Panoramic Trekking photo (2 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[2]}}" alt="Panoramic Trekking photo (3 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[3]}}" alt="Panoramic Trekking photo (4 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[4]}}" alt="Panoramic Trekking photo (5 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[5]}}" alt="Panoramic Trekking photo (6 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[6]}}" alt="Panoramic Trekking photo (7 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[7]}}" alt="Panoramic Trekking photo (8 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-    <div class="col-md-4">
-      <div class="raised-block"><img src="{{ptImgSrcs[8]}}" alt="Panoramic Trekking photo (9 of 9 shown)" width="400" height="400" class="img-responsive" /></div>
-    </div>
-  </div>
-</div>
-
-<!--
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-4">
-      <div class="bg-info mx-3"><img src="{{ptImgSrcs[0]}}" alt="Panoramic Trekking photo (1 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-4">
-      <div class="bg-info mx-3"><img src="{{ptImgSrcs[1]}}" alt="Panoramic Trekking photo (2 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-4">
-      <div class="bg-info mx-3"><img src="{{ptImgSrcs[2]}}" alt="Panoramic Trekking photo (3 of 9 shown)" width="400" height="400" /></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"><img src="{{ptImgSrcs[3]}}" alt="Panoramic Trekking photo (4 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-md-4"><img src="{{ptImgSrcs[4]}}" alt="Panoramic Trekking photo (5 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-md-4"><img src="{{ptImgSrcs[5]}}" alt="Panoramic Trekking photo (6 of 9 shown)" width="400" height="400" /></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"><img src="{{ptImgSrcs[6]}}" alt="Panoramic Trekking photo (7 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-md-4"><img src="{{ptImgSrcs[7]}}" alt="Panoramic Trekking photo (8 of 9 shown)" width="400" height="400" /></div>
-    <div class="col-md-4"><img src="{{ptImgSrcs[8]}}" alt="Panoramic Trekking photo (9 of 9 shown)" width="400" height="400" /></div>
-  </div>
-</div>
-      -->
