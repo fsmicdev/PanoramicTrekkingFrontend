@@ -351,18 +351,18 @@ svg#clouds {
 }
 
 .header-user-avatar-image {
-  margin-top: 30px;
+  margin-top: 5px;
   background-image: url('/assets/images/mic_profile_snap.jpeg');
   background-size: cover;
 }
 
 .username-near-avatar {
-  margin-top: -30px;
+  margin-top: -45px;
   text-align: center;
   font-family: sans-serif, "Arial Narrow";
   font-style: italic;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 input[type=text], input[type=password], input[type=number], textarea {

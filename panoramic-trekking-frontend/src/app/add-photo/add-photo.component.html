@@ -1,84 +1,93 @@
+<div>
+  <div>
+    <mat-card class="pt-photo-upload">
+      <mat-card-header>
+        <div mat-card-avatar
+             class="header-user-avatar-image">
+          <br/>
+          <div class="username-near-avatar">
+            MicG
+          </div>
+        </div>
+      </mat-card-header>
+    </mat-card>
+  </div>
 
-<mat-card class="pt-photo-upload">
-  <mat-card-header>
-    <div mat-card-avatar
-         class="header-user-avatar-image">
-      <br/>
-      <div class="username-near-avatar">
-        MicG
-      </div>
+  <form class="photo-metadata-form">
+    <div class="full-width-with-indent">
+      <input type="text"
+             matInput
+             placeholder="Photo Title"
+             size="80"
+             maxlength="80">
     </div>
-  </mat-card-header>
-</mat-card>
 
-<form class="photo-metadata-form">
-  <!-- <mat-form-field class="full-width-with-indent"> -->
-  <div class="full-width-with-indent">
-    <input type="text"
-           matInput
-           placeholder="Photo Title"
-           size="80"
-           maxlength="80">
-  </div>
-  <!-- </mat-form-field> -->
-  <div class="full-width-with-indent">
-    <textarea rows="5"
-              cols="120"
-              placeholder="Detailed Description for Photo"></textarea>
-  </div>
-  <!-- <mat-form-field class="full-width-with-indent"> -->
-  <div class="full-width-with-indent">
-    <input type="text"
-           matInput
-           readonly="readonly"
-           [min]="minDatePhotoWasTaken"
-           [max]="maxDatePhotoWasTaken"
-           [matDatepicker]="picker"
-           placeholder="Date Photo was Taken">
-    <mat-datepicker-toggle
-      matSuffix
-      [for]="picker">
-    </mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </div>
-  <!-- </mat-form-field> -->
-</form>
+    <div class="full-width-with-indent">
+      <textarea rows="5"
+                cols="120"
+                placeholder="Detailed Description for Photo"></textarea>
+    </div>
 
-<button mat-button
-        color="primary"
-        (click)="onClick()"
-        class="upload-photo-button">
-  <mat-icon>file_upload</mat-icon>
-  Upload Photo
-</button>
+    <div class="full-width-with-indent">
+      <input type="text"
+             matInput
+             readonly="readonly"
+             [min]="minDatePhotoWasTaken"
+             [max]="maxDatePhotoWasTaken"
+             [matDatepicker]="picker"
+             placeholder="Date Photo was Taken">
+      <mat-datepicker-toggle
+        matSuffix
+        [for]="picker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
 
-<br/>
+      <br/>
 
-<ul>
-  <li *ngFor="let file of files">
-    <mat-progress-bar
-      class="full-width-with-indent"
-      [value]="file.progress">
-    </mat-progress-bar>
-    <span id="file-label"
-          class="full-width-with-indent">
-          {{file.data.name}}
-      <a title="Retry"
-         (click)="retryFile(file)"
-         *ngIf="file.canRetry">
-          <mat-icon>refresh</mat-icon></a>
-          <a title="Cancel"
-             (click)="cancelFile(file)"
-             *ngIf="file.canCancel">
-          <mat-icon>cancel</mat-icon></a>
-    </span>
-  </li>
-</ul>
+      <div class="padding-top-bottom-choose-file">
+        <button mat-button
+                color="primary"
+                (click)="onClick()"
+                class="upload-photo-button">
+          <mat-icon>file_upload</mat-icon>
+          Choose Photo File
+        </button>
+      </div>
 
-<input type="file"
-       id="photoForUpload"
-       name="photoForUpload"
-       accept="{{accept}}"
-       style="display: none;"/>
+      <br/>
 
-<app-manage-tags></app-manage-tags>
+      <ul>
+        <li *ngFor="let file of files">
+          <mat-progress-bar
+            class="full-width-with-indent"
+            [value]="file.progress">
+          </mat-progress-bar>
+
+          <span id="file-label"
+                class="full-width-with-indent">
+            {{file.data.name}}
+            <a title="Retry"
+               (click)="retryFile(file)"
+               *ngIf="file.canRetry">
+            <mat-icon>refresh</mat-icon></a>
+            <a title="Cancel"
+               (click)="cancelFile(file)"
+               *ngIf="file.canCancel">
+            <mat-icon>cancel</mat-icon></a>
+          </span>
+        </li>
+      </ul>
+
+      <input type="file"
+             id="photoForUpload"
+             name="photoForUpload"
+             accept="{{accept}}"
+             style="display: none;"/>
+
+      <app-manage-tags></app-manage-tags>
+
+      <button mat-raised-button color="primary">Submit Photo</button>
+    </div>
+  </form>
+
+</div>
