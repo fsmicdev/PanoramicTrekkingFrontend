@@ -1,5 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-import {ClassProvider, NgModule} from '@angular/core';
+import { ClassProvider, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,15 +25,15 @@ import { RegisterComponent } from './register';
 import { ErrorInterceptor, fakeBackendProvider, JwtInterceptor } from './_helpers';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
-import {HttpLoggingInterceptor} from '@/_helpers/http-logging.interceptor';
-
+import { HttpLoggingInterceptor } from '@/_helpers/http-logging.interceptor';
+import { FeedbackDialogComponent } from '@/feedback-dialog/feedback-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
   provide: HTTP_INTERCEPTORS ,
   useClass: HttpLoggingInterceptor,
   multi: true
 };
-
 
 @NgModule({
   imports: [
@@ -53,6 +53,7 @@ const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
     MatProgressBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -65,9 +66,11 @@ const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
     MatFileUploadModule,
     MatProgressBarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
   ],
   declarations: [
+    FeedbackDialogComponent,
     AppComponent,
     LoginComponent,
     AlertComponent,
