@@ -1,9 +1,29 @@
-<h2 mat-dialog-title>{{dialogTitle}}</h2>
+<h2 mat-dialog-title>
+  <span class="icon-status">
+    <i class="material-icons"
+       *ngIf="showSuccessIcon">
+      thumb_up
+    </i>
+
+    <i class="material-icons"
+       *ngIf="showFailureIcon">
+      thumb_down
+    </i>
+  </span>
+
+  &nbsp;&nbsp;
+  {{dialogTitle}}
+</h2>
+
+<mat-divider></mat-divider>
+
+<br/>
 
 <mat-dialog-content>
-
   <p>{{dialogContent}}</p>
 </mat-dialog-content>
+
+<br/>
 
 <mat-dialog-actions>
   <button class="mat-raised-button"

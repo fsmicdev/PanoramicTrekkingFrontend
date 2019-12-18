@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpEventType, HttpRequest} from '@angular/common/http';
-import {Subscription} from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpEventType, HttpRequest } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 import { catchError, last, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
+import { FeedbackDialogComponent, FeedbackDialogData } from '@/feedback-dialog/feedback-dialog.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   templateUrl: './add-photo.component.html',
@@ -26,12 +28,47 @@ export class AddPhotoComponent implements OnInit {
 
   private files: Array<FileUploadModel> = [];
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+              private matDialog: MatDialog) {
+  }
 
   ngOnInit() {
   }
 
-  onClick() {
+  onSubmit() {
+    this.openDialog(
+      '50%',
+      '80%',
+      'SomePhoto.png',
+      true,
+      false);
+  }
+
+  openDialog(dialogWidth: string, dialogHeight: string, photoFileName: string, isSuccess: boolean, isFailure: boolean) {
+    const feedbackDialogData: FeedbackDialogData = {
+      dialogTitle: 'Successful photo upload',
+      dialogContent: `Your photo ${photoFileName} was uploaded`,
+      dialogCloseBtnText: 'Close',
+      showSuccessIcon: isSuccess,
+      showFailureIcon: isFailure
+
+    };
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = feedbackDialogData;
+    dialogConfig.width = dialogWidth;
+    dialogConfig.height = dialogHeight;
+    dialogConfig.position = {
+      top: '7%',
+      left: '7%'
+    };
+
+    const dialogRef = this.matDialog.open(FeedbackDialogComponent, dialogConfig);
+  }
+
+  onChoosePhotoClick() {
+    console.log('In onChoosePhotoClick()');
+
     const fileUpload = document.getElementById('photoForUpload') as HTMLInputElement;
     fileUpload.onchange = () => {
       let idx = 0;

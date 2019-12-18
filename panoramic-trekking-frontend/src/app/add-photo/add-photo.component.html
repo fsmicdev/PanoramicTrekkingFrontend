@@ -47,7 +47,7 @@
       <div class="padding-top-bottom-choose-file">
         <button mat-button
                 color="primary"
-                (click)="onClick()"
+                (click)="onChoosePhotoClick()"
                 class="upload-photo-button">
           <mat-icon>file_upload</mat-icon>
           Choose Photo File
@@ -87,7 +87,8 @@
       <app-manage-tags></app-manage-tags>
 
       <button mat-raised-button
-              color="primary">
+              color="primary"
+              (click)="onSubmit()">
         Submit Photo
       </button>
     </div>

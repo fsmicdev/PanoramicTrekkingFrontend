@@ -27,7 +27,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { HttpLoggingInterceptor } from '@/_helpers/http-logging.interceptor';
 import { FeedbackDialogComponent } from '@/feedback-dialog/feedback-dialog.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 
 const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
   provide: HTTP_INTERCEPTORS ,
@@ -54,6 +55,7 @@ const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
+    MatDividerModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -67,7 +69,8 @@ const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
     MatProgressBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule
   ],
   declarations: [
     FeedbackDialogComponent,
@@ -89,6 +92,7 @@ const HTTP_LOGGING_INTERCEPTOR_PROVIDER: ClassProvider = {
     // provider used to create fake backend
     fakeBackendProvider
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [FeedbackDialogComponent]
 })
 export class AppModule { }

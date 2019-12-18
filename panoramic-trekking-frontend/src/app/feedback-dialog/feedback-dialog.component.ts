@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 
-import { MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
-interface FeedbackDialogData {
+export interface FeedbackDialogData {
   dialogTitle: string;
   dialogContent: string;
   dialogCloseBtnText: string;
+  showSuccessIcon: boolean;
+  showFailureIcon: boolean;
 }
 
 @Component({
@@ -18,20 +20,29 @@ export class FeedbackDialogComponent implements OnInit {
   dialogContent: string;
   dialogCloseBtnText = 'Close';
 
-  constructor(
-    private dialogRef: MatDialogRef<FeedbackDialogComponent>,
-    private feedbackDialogData: FeedbackDialogData) {
-    if (feedbackDialogData) {
-      if (feedbackDialogData.dialogTitle) {
-        this.dialogTitle = feedbackDialogData.dialogTitle;
+  showSuccessIcon = false;
+  showFailureIcon = false;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<FeedbackDialogComponent>) {
+    if (data) {
+      if (data.dialogTitle) {
+        this.dialogTitle = data.dialogTitle;
       }
 
-      if (feedbackDialogData.dialogContent) {
-        this.dialogContent = feedbackDialogData.dialogContent;
+      if (data.dialogContent) {
+        this.dialogContent = data.dialogContent;
       }
 
-      if (feedbackDialogData.dialogCloseBtnText) {
-        this.dialogCloseBtnText = feedbackDialogData.dialogCloseBtnText;
+      if (data.dialogCloseBtnText) {
+        this.dialogCloseBtnText = data.dialogCloseBtnText;
+      }
+
+      if (data.showSuccessIcon) {
+        this.showSuccessIcon = data.showSuccessIcon;
+      }
+
+      if (data.showFailureIcon) {
+        this.showFailureIcon = data.showFailureIcon;
       }
     }
   }
@@ -41,6 +52,8 @@ export class FeedbackDialogComponent implements OnInit {
 
   closeDialog() {
     console.log('[Dialog was closed]');
+
+    this.dialogRef.close();
   }
 
 }
