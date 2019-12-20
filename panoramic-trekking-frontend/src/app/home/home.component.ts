@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
                 private userService: UserService,
                 private photosService: PhotosService) {
         this.currentUser = this.authenticationService.currentUserValue;
-        console.log('>>>>> >>>>> >>>>> In HomeComponent, this.currentUser: ', this.currentUser);
+        console.log('>>>>> In HomeComponent, this.currentUser: ', this.currentUser);
 
         if (this.currentUser && this.currentUser.id) {
           console.log('>>>>> All photos for current logged-in user...');

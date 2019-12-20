@@ -51,7 +51,6 @@ export class AddPhotoComponent implements OnInit {
       dialogCloseBtnText: 'Close',
       showSuccessIcon: isSuccess,
       showFailureIcon: isFailure
-
     };
 
     const dialogConfig = new MatDialogConfig();
