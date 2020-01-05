@@ -4,8 +4,8 @@ import { DomSanitizer, Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 
-import { AuthenticationService } from './_services';
-import { User } from './_models';
+import { AuthenticationService } from '@/_services';
+import { User } from '@/_models';
 
 const suffixTitle = ' : Panoramic Trekking';
 

@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import { tap } from 'rxjs/operators'; // fancy pipe-able operators
+import {Observable} from 'rxjs';
+import {tap} from 'rxjs/operators'; // fancy pipe-able operators
 
 @Injectable()
 export class HttpLoggingInterceptor implements HttpInterceptor {
