@@ -11,6 +11,7 @@ import {PhotosService} from '@/_services/photos/photos.service';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit {
+
     currentUser: User;
     users = [];
     ptImgSrcs: string[] = new Array();
