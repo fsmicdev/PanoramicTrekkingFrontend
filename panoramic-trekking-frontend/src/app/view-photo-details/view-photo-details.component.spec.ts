@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ViewPhotoDetailsComponent } from './view-photo-details.component';
+import {ViewPhotoDetailsComponent} from './view-photo-details.component';
 
 describe('ViewPhotoDetailsComponent', () => {
   let component: ViewPhotoDetailsComponent;

@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpEventType, HttpRequest } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { catchError, last, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { FeedbackDialogComponent, FeedbackDialogData } from '@/feedback-dialog/feedback-dialog.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {HttpClient, HttpErrorResponse, HttpEventType, HttpRequest} from '@angular/common/http';
+import {Subscription} from 'rxjs';
+import {catchError, last, map, tap} from 'rxjs/operators';
+import {of} from 'rxjs/observable/of';
+import {FeedbackDialogComponent} from '@/feedback-dialog/feedback-dialog.component';
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {FeedbackDialogData, FileUploadModel} from '@/_models';
 
 @Component({
   templateUrl: './add-photo.component.html',
@@ -149,12 +150,3 @@ export class AddPhotoComponent implements OnInit {
 
 }
 
-export class FileUploadModel {
-  data: File;
-  state: string;
-  inProgress: boolean;
-  progress: number;
-  canRetry: boolean;
-  canCancel: boolean;
-  sub?: Subscription;
-}

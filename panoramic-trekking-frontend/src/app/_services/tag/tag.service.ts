@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Tag } from '../../_models/model';
+import { Tag } from '../../_models/tag';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,9 @@ export class TagService {
 
   grabUsersTags(userId: number): Tag[] { // Observable<Tag[]> {
     // ###########################################
+    // ###########################################
     // ##### N.B. Mocked data only initially #####
+    // ###########################################
     // ###########################################
     const tags = [] as Tag[];
 

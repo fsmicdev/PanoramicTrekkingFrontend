@@ -2,14 +2,6 @@ import {Component, Inject, OnInit} from '@angular/core';
 
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
-export interface FeedbackDialogData {
-  dialogTitle: string;
-  dialogContent: string;
-  dialogCloseBtnText: string;
-  showSuccessIcon: boolean;
-  showFailureIcon: boolean;
-}
-
 @Component({
   templateUrl: './feedback-dialog.component.html',
   styleUrls: ['./feedback-dialog.component.css']
