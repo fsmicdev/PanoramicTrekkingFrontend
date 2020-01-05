@@ -315,6 +315,17 @@ svg#clouds {
   padding-top: 10px !important;
 }
 
+header {
+  margin-left: 15px;
+
+  visibility: visible;
+  font-family: "Noto Sans script=latin rev=2";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.10909;
+}
+
 .pt-header {
   color: #0E5FE5;
   font-size: 48px;
