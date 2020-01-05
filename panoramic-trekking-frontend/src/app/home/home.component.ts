@@ -7,7 +7,7 @@ import { first } from 'rxjs/operators';
 
 import { Photos, User } from '../_models';
 import { UserService, AuthenticationService } from '../_services';
-import { PhotosService } from '@/_services/photos.service';
+import { PhotosService } from '@/_services/photos/photos.service';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit {

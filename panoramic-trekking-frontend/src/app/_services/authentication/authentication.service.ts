@@ -3,10 +3,10 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable, of, throwError} from 'rxjs';
 import {catchError, map} from 'rxjs/operators';
 
-import { User } from '../_models';
-import { UserLoginRequest } from '../_models';
+import { User } from '../../_models';
+import { UserLoginRequest } from '../../_models';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
